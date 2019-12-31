@@ -6,6 +6,7 @@
 @Init
 void call(Map context) {
   node{
+      sh "ls"
       unstash "workspace"
 
       env.GIT_URL = scm.getUserRemoteConfigs()[0].getUrl()
