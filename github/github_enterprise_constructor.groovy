@@ -11,6 +11,8 @@ void call(Map context) {
 
       env.GIT_URL = scm.getUserRemoteConfigs()[0].getUrl()
       env.GIT_CREDENTIAL_ID = scm.getUserRemoteConfigs()[0].credentialsId.toString()
+    
+      println "here"
       def parts = env.GIT_URL.split("/")
       for (part in parts){
           parts = parts.drop(1)
