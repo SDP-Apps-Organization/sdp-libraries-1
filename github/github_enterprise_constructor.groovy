@@ -12,13 +12,13 @@ void call(Map context) {
       env.GIT_URL = scm.getUserRemoteConfigs()[0].getUrl()
       env.GIT_CREDENTIAL_ID = scm.getUserRemoteConfigs()[0].credentialsId.toString()
     
-      println "here"
       def parts = env.GIT_URL.split("/")
       for (part in parts){
           parts = parts.drop(1)
           if (part.contains(".")) break
       }
       env.ORG_NAME = parts.getAt(0)
+      print("here")
       env.REPO_NAME = parts[1..-1].join("/") - ".git"
       env.GIT_SHA = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
 
