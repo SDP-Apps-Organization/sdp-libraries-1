@@ -18,7 +18,7 @@ void call(Map context) {
           if (part.contains(".")) break
       }
       env.ORG_NAME = parts.getAt(0)
-      println(parts)
+      println(parts[1..-1])
       env.REPO_NAME = parts[1..-1].join("/") - ".git"
       env.GIT_SHA = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
 
